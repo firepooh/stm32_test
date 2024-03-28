@@ -22,4 +22,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: my-artifact
-        path: build/debug/build/stm32g4.bin
+        path: Debug/stm32g4.bin

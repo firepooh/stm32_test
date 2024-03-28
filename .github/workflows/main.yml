@@ -17,4 +17,4 @@ jobs:
     - uses: xanderhendriks/action-build-stm32cubeide@v11.0
       with:
         project-path: stm32_test
-        project-target: stm32_test/Debug
+        project-target: stm32g4

@@ -16,5 +16,5 @@ jobs:
       uses: actions/checkout@v2
     - uses: xanderhendriks/action-build-stm32cubeide@v11.0
       with:
-      project-path: firepooh/stm32_test
+      project-path: 'firepooh/stm32_test'
       project-target: stm32_test/Debug

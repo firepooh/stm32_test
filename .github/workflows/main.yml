@@ -9,7 +9,7 @@ on:
       release:
         description: 'Release (y/n)?'
         required: true
-        default: 'y'
+        default: 'n'
 
 jobs:
   build-application:

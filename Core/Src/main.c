@@ -204,7 +204,7 @@ void StartDefaultTask(void *argument)
     osDelay(2);
     osDelay(3);
     osDelay(4);
-    osDelay(5);
+
     
   }
   /* USER CODE END 5 */

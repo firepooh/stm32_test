@@ -9,7 +9,7 @@ on:
       release:
         description: 'Release (y/n)?'
         required: true
-        default: 'n'
+        default: 'y'
 
 jobs:
   build-application:
@@ -72,7 +72,7 @@ jobs:
           path: stm32-firmware
   release:
     needs: [build-application]
-    if: github.ref == 'refs/heads/master' || github.event.inputs.release == 'y'
+    if: github.ref == 'github.event.inputs.release == 'y'
     name: Release to Github
     runs-on: ubuntu-20.04
     steps:

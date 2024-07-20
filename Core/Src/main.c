@@ -312,6 +312,7 @@ void StartDefaultTask(void *argument)
     osDelay(1000);
     HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
     printf("test %d : %d.%d.%d \n",i++,VERSION_MAJOR,VERSION_MINOR,VERSION_BUGFIX);
+    printf("git hash %s \n",VERSION_SHORT_GIT_HASH);
   }
   /* USER CODE END 5 */
 }

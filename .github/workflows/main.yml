@@ -10,10 +10,9 @@ on:
         description: 'Release (y/n)?'
         required: true
         default: 'y'
-
 jobs:
-  build-application:
-    name: Build the application binary
+  build-sample_application:
+    name: Build the sample application binary
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout the repository
@@ -48,9 +47,6 @@ jobs:
           echo "major=$(echo $version | sed 's/\([0-9]*\)\.\([0-9]*\)\.\([0-9]*\).*/\1/')" >> $GITHUB_OUTPUT
           echo "minor=$(echo $version | sed 's/\([0-9]*\)\.\([0-9]*\)\.\([0-9]*\).*/\2/')" >> $GITHUB_OUTPUT
           echo "bugfix=$(echo $version | sed 's/\([0-9]*\)\.\([0-9]*\)\.\([0-9]*\).*/\3/')" >> $GITHUB_OUTPUT
-          echo "DEBUG: file_postfix is $file_postfix"
-      - name: Generate version header
-        run: echo "#define VERSION \"$file_postfix\"" > Core/Inc/version.h          
       - name: Build the sample_application binary
         uses: xanderhendriks/action-build-stm32cubeide@v11.0
         with:
@@ -74,8 +70,8 @@ jobs:
           name: stm32-firmware-sample_application-${{ steps.version_handling.outputs.file_postfix }}
           path: stm32-firmware
   release:
-    needs: [build-application]
-    if: github.event.inputs.release == 'y'
+    needs: [build-sample_application]
+    if: github.ref == 'refs/heads/master' || github.event.inputs.release == 'y'
     name: Release to Github
     runs-on: ubuntu-20.04
     steps:

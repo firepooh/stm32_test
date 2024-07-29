@@ -22,7 +22,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "version.h"
 #include "stdio.h"
 /* USER CODE END Includes */
 
